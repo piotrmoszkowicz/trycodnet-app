@@ -8,16 +8,22 @@ const TransactionListItem = ({ item }) => {
   return (
     <List.Item>
       <Row>
-        <Col span={2}>
+        <Col span={24}>
           TransactionId: <br/> {item.transactionId}
         </Col>
-        <Col span={6}>
+      </Row>
+      <Row>
+        <Col span={7}>
           Input Addresses: <br/>
-          {item.addressesInput.reduce((acc, address) => acc + address + ",", "")}
+          {item.addressesInput.map(address => (
+            <p>{address}</p>
+          ))}
         </Col>
-        <Col span={6}>
+        <Col span={7}>
           Output Addresses: <br/>
-          {item.addressesOutput.reduce((acc, address) => acc + address + ", ", "")}
+          {item.addressesOutput.map(address => (
+            <p>{address}</p>
+          ))}
         </Col>
         <Col span={2}>
           Amount: <br/>
